@@ -6,3 +6,4 @@ wikipedia
 bs4
 reportlab
 crewai[tools]
+sqlite3 >= 3.35.0
