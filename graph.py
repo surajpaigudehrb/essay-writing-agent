@@ -33,7 +33,7 @@ class RouteQuery(BaseModel):
 class EssayWriter:
     def __init__(self, api_key: str = None):
         self.model = ChatOpenAI(api_key=api_key, model="gpt-4o-mini-2024-07-18", temperature=0)
-        self.crew = CrewClass(llm=ChatOpenAI(api_key=api_key, model="gpt-4o-mini-2024-07-18", temperature=0.5))
+        self.crew = CrewClass(llm=ChatOpenAI(api_key=api_key, model="gpt-4o-mini-2024-07-18", temperature=0.5), api_key=api_key)
 
         self.memory = ConversationBufferMemory()
         self.essay = {}

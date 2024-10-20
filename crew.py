@@ -16,8 +16,9 @@ class Essay(BaseModel):
 
 class CrewClass:
     """Essay Writing Crew Class"""
-    def __init__(self, llm):
+    def __init__(self, llm, api_key):
         self.llm = llm
+        self.openai_api_key = api_key
 
         self.researcher = Agent(
             role="Content Researcher",
@@ -88,5 +89,6 @@ class CrewClass:
             tasks=[self.research, self.write, self.edit],
             process=Process.sequential,
             verbose=True,
-            memory=True
+            memory=True,
+            openai_api_key=self.openai_api_key
         ).kickoff(*args)
