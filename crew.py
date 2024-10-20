@@ -2,6 +2,7 @@ from crewai import Agent, Task, Crew, Process
 from extra_tools import wiki_tool, web_tool
 from pydantic import BaseModel, Field
 from typing import List, TypedDict
+from chromadb.utils import embedding_functions
 
 class Paragraph(TypedDict):
     sub_header: str
@@ -90,5 +91,7 @@ class CrewClass:
             process=Process.sequential,
             verbose=True,
             memory=True,
-            embedder={"provider": "openai", "api_key": self.openai_api_key},
+            embedder=embedding_functions.OpenAIEmbeddingFunction(
+            api_key=self.openai_api_key, model_name="text-embedding-3-small"
+        ),
         ).kickoff(*args)
