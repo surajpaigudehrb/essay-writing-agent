@@ -25,7 +25,8 @@ class CrewClass:
             backstory="You're researching content to write an essay about the topic: {topic}."
                       "You collect information that helps the audience learn something and make informed decisions."
                       "Your work is the basis for the Content Writer to write an article on this topic.",
-            verbose=True
+            verbose=True,
+            llm=self.llm
         )
 
         self.writer = Agent(
@@ -36,7 +37,8 @@ class CrewClass:
                       "You base your writing on the work of the Content Researcher, who provides an outline and relevant context about the topic."
                       "You follow the main objectives and direction of the outline, as provide by the Content Researcher."
                       "You also provide objective and impartial insights and back them up with information provide by the Content Researcher.",
-            verbose=True
+            verbose=True,
+            llm=self.llm
         )
         self.editor = Agent(
             role="Content Editor",
@@ -44,7 +46,8 @@ class CrewClass:
             backstory="You are an editor who receives an essay from the Content Writer."
                       "Your goal is to review the essay to ensure that it follows best practices, provides balanced viewpoints"
                       "when providing opinions or assertions,and also avoids major controversial topics or opinions when possible.",
-            verbose=True
+            verbose=True,
+            llm=self.llm
         )
 
         self.research = Task(
