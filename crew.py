@@ -90,5 +90,5 @@ class CrewClass:
             process=Process.sequential,
             verbose=True,
             memory=True,
-            openai_api_key=self.openai_api_key
+            embedder={"provider": "openai", "api_key": self.openai_api_key},
         ).kickoff(*args)
