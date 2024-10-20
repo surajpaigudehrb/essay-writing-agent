@@ -17,7 +17,7 @@ class Essay(BaseModel):
 
 class CrewClass:
     """Essay Writing Crew Class"""
-    def __init__(self, llm, api_key):
+    def __init__(self, llm):
         self.llm = llm
 
         self.researcher = Agent(

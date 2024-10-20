@@ -1,6 +1,6 @@
 import streamlit as st
 from graph import EssayWriter
-import openai
+import os
 
 st.set_page_config(page_title="Essay Writer Chat Bot", page_icon="🤖")
 st.image("./media/cover.jpg", use_column_width=True)
@@ -50,8 +50,8 @@ with st.sidebar:
 
 
 def initialize_agents():
-    openai.api_key = openai_key
-    essay_writer = EssayWriter(api_key=openai_key).graph
+    os.environ["OPENAI_API_KEY"] = openai_key
+    essay_writer = EssayWriter().graph
     st.success("Agents successfully initialized")
     return essay_writer
 
