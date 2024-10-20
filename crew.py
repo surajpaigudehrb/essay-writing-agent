@@ -28,7 +28,8 @@ class CrewClass:
                       "You collect information that helps the audience learn something and make informed decisions."
                       "Your work is the basis for the Content Writer to write an article on this topic.",
             verbose=True,
-            llm=self.llm
+            llm=self.llm,
+            function_calling_llm=self.llm
         )
 
         self.writer = Agent(
