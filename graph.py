@@ -105,7 +105,7 @@ class EssayWriter:
         self.memory.save_context(inputs={"input": state["topic"]}, outputs={"output": str(self.essay)})
 
         pdf_name = generate_pdf(self.essay)
-        return {"response": "Here is your essay! ",  "pdf_name": f"./{pdf_name}"}
+        return {"response": "Here is your essay! ",  "pdf_name": f"{pdf_name}"}
 
     def edit_essay(self, state: GraphState):
         print("**ESSAY EDIT**")
@@ -130,4 +130,4 @@ class EssayWriter:
 
         self.memory.save_context(inputs={"input": state["topic"]}, outputs={"output": str(self.essay)})
         pdf_name = generate_pdf(self.essay)
-        return {"response": "Here is your edited essay! ", "essay": self.essay, "pdf_name": f"./{pdf_name}"}
+        return {"response": "Here is your edited essay! ", "essay": self.essay, "pdf_name": f"{pdf_name}"}
