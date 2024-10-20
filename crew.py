@@ -3,7 +3,7 @@ from extra_tools import wiki_tool, web_tool
 from pydantic import BaseModel, Field
 from typing import List, TypedDict
 from chromadb.utils import embedding_functions
-import openai
+
 
 class Paragraph(TypedDict):
     sub_header: str
@@ -20,7 +20,6 @@ class CrewClass:
     """Essay Writing Crew Class"""
     def __init__(self, llm, api_key):
         self.llm = llm
-        openai.api_key = api_key
 
         self.researcher = Agent(
             role="Content Researcher",

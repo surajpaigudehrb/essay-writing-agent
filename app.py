@@ -1,5 +1,6 @@
 import streamlit as st
 from graph import EssayWriter
+import openai
 
 st.set_page_config(page_title="Essay Writer Chat Bot", page_icon="🤖")
 st.image("./media/cover.jpg", use_column_width=True)
@@ -39,7 +40,7 @@ with st.sidebar:
     openai_key_input = st.text_input("OpenAI API Key", type="password")
     developer_mode = st.checkbox("I don't have key, use developer's money 😓", value=False)
     openai_key = openai_key_input or (st.secrets["OpenAI_API_KEY"] if developer_mode else "")
-
+    openai.api_key = openai_key
     if len(openai_key) < 1:
         st.error("Please enter your OpenAI API key")
 
