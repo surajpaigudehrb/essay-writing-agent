@@ -40,7 +40,7 @@ with st.sidebar:
     openai_key_input = st.text_input("OpenAI API Key", type="password")
     developer_mode = st.checkbox("I don't have key, use developer's money 😓", value=False)
     openai_key = openai_key_input or (st.secrets["OpenAI_API_KEY"] if developer_mode else "")
-    openai.api_key = openai_key
+
     if len(openai_key) < 1:
         st.error("Please enter your OpenAI API key")
 
@@ -50,6 +50,7 @@ with st.sidebar:
 
 
 def initialize_agents():
+    openai.api_key = openai_key
     essay_writer = EssayWriter(api_key=openai_key).graph
     st.success("Agents successfully initialized")
     return essay_writer

@@ -2,7 +2,6 @@ from crewai import Agent, Task, Crew, Process
 from extra_tools import wiki_tool, web_tool
 from pydantic import BaseModel, Field
 from typing import List, TypedDict
-from chromadb.utils import embedding_functions
 
 
 class Paragraph(TypedDict):
