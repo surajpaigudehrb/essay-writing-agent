@@ -32,6 +32,7 @@ button_html = f'''
 if "messages" not in st.session_state:
     st.session_state.messages =  [{"role": "assistant", "content": "Hello!"}]
     st.session_state.app = None
+    st.session_state.chat_active = True
 with st.sidebar:
     st.info(" * This app uses the OpenAI API to generate text, please provide your API key."
             "\n\n * This app uses the 'gpt-4o-mini-2024-07-18' model. Cost effective and efficient."
@@ -54,10 +55,10 @@ def initialize_agents():
     if len(openai_key) < 1:
         st.error("Please enter your OpenAI API key and Initialize the agents.")
 
-        chat_active = True
+        st.session_state.chat_active = True
     else:
         st.success("Agents successfully initialized")
-        chat_active = False
+        st.session_state.chat_active = False
 
     return essay_writer
 
@@ -76,7 +77,7 @@ for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         st.markdown(message["content"], unsafe_allow_html=True)
 
-if topic:= st.chat_input(placeholder="Ask a question", disabled=chat_active):
+if topic:= st.chat_input(placeholder="Ask a question", disabled=st.session_state.chat_active):
     st.chat_message("user").markdown(topic)
 
     st.session_state.messages.append({"role": "user", "content": topic})
