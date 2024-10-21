@@ -33,6 +33,7 @@ if "messages" not in st.session_state:
     st.session_state.messages =  [{"role": "assistant", "content": "Hello!"}]
     st.session_state.app = None
     st.session_state.chat_active = True
+
 with st.sidebar:
     st.info(" * This app uses the OpenAI API to generate text, please provide your API key."
             "\n\n * This app uses the 'gpt-4o-mini-2024-07-18' model. Cost effective and efficient."
