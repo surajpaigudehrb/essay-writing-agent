@@ -37,23 +37,28 @@ with st.sidebar:
             "\n\n * This app uses the 'gpt-4o-mini-2024-07-18' model. Cost effective and efficient."
             "\n\n * If you don't have an API key, you can get one [here](https://platform.openai.com/signup)."
             "\n\n * You can also find the source code for this app [here](https://github.com/mesutdmn/Autonomous-Multi-Agent-Systems-with-CrewAI-Essay-Writer)"
-            "\n\n * App keys are not stored or saved in any way.")
+            "\n\n * App keys are not stored or saved in any way."
+            "\n\n * Writing essay may take some time, please be patient. Approximately 1-2 minutes."
+            "\n\n * If you like this app, consider buying me a coffee ☕")
     openai_key_input = st.text_input("OpenAI API Key", type="password")
     developer_mode = st.checkbox("I don't have key, use developer's money 😓", value=False)
     openai_key = openai_key_input or (st.secrets["OpenAI_API_KEY"] if developer_mode else "")
 
-    if len(openai_key) < 1:
-        st.error("Please enter your OpenAI API key")
 
-        chat_active = True
-    else:
-        chat_active = False
 
 
 def initialize_agents():
     os.environ["OPENAI_API_KEY"] = openai_key
     essay_writer = EssayWriter().graph
-    st.success("Agents successfully initialized")
+
+    if len(openai_key) < 1:
+        st.error("Please enter your OpenAI API key and Initialize the agents.")
+
+        chat_active = True
+    else:
+        st.success("Agents successfully initialized")
+        chat_active = False
+
     return essay_writer
 
 with st.sidebar:
