@@ -1,6 +1,7 @@
 import streamlit as st
 from graph import EssayWriter
 import os
+import base64
 
 st.set_page_config(page_title="Essay Writer Chat Bot", page_icon="🤖")
 st.image("./media/cover.jpg", use_column_width=True)
@@ -68,7 +69,7 @@ def generate_response(topic):
 
 for message in st.session_state.messages:
     with st.chat_message(message["role"]):
-        st.markdown(message["content"])
+        st.markdown(message["content"], unsafe_allow_html=True)
 
 if topic:= st.chat_input(placeholder="Ask a question", disabled=chat_active):
     st.chat_message("user").markdown(topic)
@@ -79,8 +80,13 @@ if topic:= st.chat_input(placeholder="Ask a question", disabled=chat_active):
 
     with st.chat_message("assistant"):
         if "pdf_name" in response:
-            st.markdown(f"{response['response']}: [Download PDF]({response['pdf_name']})")
-            st.session_state.messages.append({"role": "assistant", "content": f"{response['response']}: [Download PDF]({response['pdf_name']})"})
+            with open(f"./{response['pdf_name']}", "rb") as file:
+                file_bytes = file.read()
+                b64 = base64.b64encode(file_bytes).decode()
+            href = f'<a href="data:application/pdf;base64,{b64}" download="{response['pdf_name']}">Download PDF {response['pdf_name']}</a>'
+
+            st.markdown(f"{response['response']}: {href}", unsafe_allow_html=True)
+            st.session_state.messages.append({"role": "assistant", "content": f"{response['response']}: {href}"})
         else:
             st.markdown(response["response"])
             st.session_state.messages.append({"role": "assistant", "content": response["response"]})
