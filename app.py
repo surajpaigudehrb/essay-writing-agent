@@ -83,7 +83,7 @@ if topic:= st.chat_input(placeholder="Ask a question", disabled=chat_active):
             with open(f"./{response['pdf_name']}", "rb") as file:
                 file_bytes = file.read()
                 b64 = base64.b64encode(file_bytes).decode()
-            href = f'<a href="data:application/pdf;base64,{b64}" download="{response['pdf_name']}">Download PDF {response['pdf_name']}</a>'
+            href = f'<a href="data:application/pdf;base64,{b64}" download="{response['pdf_name']}">{response['pdf_name']}</a>'
 
             st.markdown(f"{response['response']}: {href}", unsafe_allow_html=True)
             st.session_state.messages.append({"role": "assistant", "content": f"{response['response']}: {href}"})
