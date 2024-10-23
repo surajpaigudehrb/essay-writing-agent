@@ -8,7 +8,7 @@
 
 This project demonstrates the use of **Autonomous Multi-Agent Systems** for completing complex tasks like essay writing, web scraping, and summarization. Powered by **CrewAI**, these agents communicate with each other and work collaboratively to achieve the final output.
 
-📄 **Medium Article**: upcoming...
+📄 **Medium Article**: [Building Autonomous Multi-Agent Systems with CrewAI](https://dumanmesut.medium.com/building-autonomous-multi-agent-systems-with-crewai-1a3b3a348271) 
 
 🚀 **Live Demo**: [Essay Writer Demo](https://multi-agent-essay-writer.streamlit.app/)
 
