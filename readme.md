@@ -64,10 +64,6 @@ Autonomous-Multi-Agent-Systems-with-CrewAI-Essay-Writer
    ```
 2. Open your browser and go to `http://localhost:8501` to interact with the interface and generate essays based on your input.
 
-![Main Page](https://github.com/user-attachments/assets/9105c1ce-fcc8-4929-8891-2934113bd565)
-
-
-
 
 ### 📺 **Demo Video**
 
