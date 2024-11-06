@@ -67,7 +67,7 @@ Autonomous-Multi-Agent-Systems-with-CrewAI-Essay-Writer
 
 ### 📺 **Demo Video**
 
-https://github.com/user-attachments/assets/b016fa37-95e9-4e34-b110-d447b881802e
+https://github.com/user-attachments/assets/98264180-9440-4dfd-b304-67117e62a0e9
 
 
 ### 📺 **Agentic Workflow Video**
