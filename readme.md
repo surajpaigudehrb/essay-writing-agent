@@ -69,6 +69,15 @@ Autonomous-Multi-Agent-Systems-with-CrewAI-Essay-Writer
 
 👨‍💻 **Developed by**: [Mesut Duman](https://www.linkedin.com/in/mesut-duman/)
 
+### 📺 **Demo Video**
+
+https://github.com/user-attachments/assets/b016fa37-95e9-4e34-b110-d447b881802e
+
+
+### 📺 **Agentic Workflow Video**
+
+https://github.com/user-attachments/assets/d8785bb6-0f7b-489f-89d2-15de26a0dcfb
+
 📄 **License**: This project is licensed under the MIT License.
 
 
