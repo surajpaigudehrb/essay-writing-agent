@@ -6,3 +6,4 @@ wikipedia==1.4.0
 bs4==0.0.2
 reportlab==4.2.5
 crewai[tools]
+pysqlite3-binary
