@@ -1,8 +1,9 @@
 import wikipedia
-from langchain.agents import Tool
 import requests
 from bs4 import BeautifulSoup
+from crewai_tools import tool
 
+@tool("Wikipedia Search Tool")
 def search_wikipedia(query: str) -> str:
     """Run Wikipedia search and get page summaries."""
     page_titles = wikipedia.search(query)
@@ -22,10 +23,8 @@ def search_wikipedia(query: str) -> str:
 
     return "\n\n".join(summaries)
 
-wiki_tool = Tool(name="search_wikipedia",
-                 func=search_wikipedia,
-                 description="Search Wikipedia for a given query.")
 
+@tool("Webpage Scraping Tool")
 def scrap_webpage(target_url):
     """Scrap the content of a webpage."""
     response = requests.get(target_url)
@@ -36,7 +35,3 @@ def scrap_webpage(target_url):
 
 
     return stripped_content
-
-web_tool = Tool(name="scrap_webpage",
-                func=scrap_webpage,
-                description="Useful for when you need to get the content from a specific webpage.")

@@ -1,5 +1,5 @@
 from crewai import Agent, Task, Crew, Process
-from extra_tools import wiki_tool, web_tool
+from extra_tools import search_wikipedia, scrap_webpage
 from pydantic import BaseModel, Field
 from typing import List, TypedDict
 
@@ -39,6 +39,7 @@ class CrewClass:
                       "You follow the main objectives and direction of the outline, as provide by the Content Researcher."
                       "You also provide objective and impartial insights and back them up with information provide by the Content Researcher.",
             verbose=True,
+
             llm=self.llm
         )
         self.editor = Agent(
@@ -59,7 +60,7 @@ class CrewClass:
                 "4. Include SEO keywords and relevant data or sources."
             ),
             expected_output="A comprehensive document with an outline, audience analysis, SEO keywords, and resources.",
-            tools=[wiki_tool, web_tool],
+            tools = [search_wikipedia, scrap_webpage],
             agent=self.researcher,
         )
 
@@ -73,6 +74,7 @@ class CrewClass:
                 "6. Pick a suitable header\n"
             ),
             expected_output="A well-written essay in markdown format, ready for publication, each section should have 2 or 3 paragraphs.",
+            context=[self.research],
             agent=self.writer,
         )
 
@@ -80,6 +82,7 @@ class CrewClass:
             description="Proofread the given essay for grammatical errors and alignment with the brand's voice.",
             expected_output="A well-written essay in required format, ready for publication, each section should have 2 or 3 paragraphs.",
             output_json = Essay,
+            context=[self.write],
             agent=self.editor
         )
 

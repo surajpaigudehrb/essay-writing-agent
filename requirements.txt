@@ -1,9 +1,8 @@
-langchain-core
-langchain-openai
-langgraph
+langchain-core==0.3.15
+langchain-openai==0.2.6
+langgraph==0.2.45
 streamlit
-wikipedia
-bs4
-reportlab
+wikipedia==1.4.0
+bs4==0.0.2
+reportlab==4.2.5
 crewai[tools]
-pysqlite3-binary
