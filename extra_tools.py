@@ -3,7 +3,7 @@ import requests
 from bs4 import BeautifulSoup
 from crewai_tools import tools
 
-@tool("Wikipedia Search Tool")
+@tools("Wikipedia Search Tool")
 def search_wikipedia(query: str) -> str:
     """Run Wikipedia search and get page summaries."""
     page_titles = wikipedia.search(query)
@@ -24,7 +24,7 @@ def search_wikipedia(query: str) -> str:
     return "\n\n".join(summaries)
 
 
-@tool("Webpage Scraping Tool")
+@tools("Webpage Scraping Tool")
 def scrap_webpage(target_url):
     """Scrap the content of a webpage."""
     response = requests.get(target_url)
