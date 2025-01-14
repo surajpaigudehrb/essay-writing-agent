@@ -10,7 +10,7 @@ from langchain_core.output_parsers import StrOutputParser, JsonOutputParser
 from langchain.prompts import PromptTemplate
 from langchain.memory import ConversationBufferMemory
 from pdf_writer import generate_pdf
-from groq import Groq
+from crewai_tools.models import Groq
 from crew import CrewClass, Essay
 
 class GraphState(TypedDict):
