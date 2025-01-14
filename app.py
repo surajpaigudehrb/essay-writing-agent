@@ -6,29 +6,6 @@ import base64
 st.set_page_config(page_title="Essay Writer Chat Bot", page_icon="🤖")
 st.image("./media/cover.jpg", use_column_width=True)
 
-button_html = f'''
-    <div style="display: flex; justify-content: center;">
-        <a href="https://buymeacoffee.com/mesutduman" target="_blank">
-            <button style="
-                background-color: #FFDD00;
-                border: none;
-                color: black;
-                padding: 10px 20px;
-                text-align: center;
-                text-decoration: none;
-                display: inline-block;
-                font-size: 16px;
-                margin: 4px 2px;
-                cursor: pointer;
-                border-radius: 10px;
-                box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
-            ">
-            ☕ Buy Me a Coffee
-            </button>
-        </a>
-    </div>
-'''
-
 if "messages" not in st.session_state:
     st.session_state.messages =  [{"role": "assistant", "content": "Hello!"}]
     st.session_state.app = None
