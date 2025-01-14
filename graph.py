@@ -10,6 +10,7 @@ from langchain_core.output_parsers import StrOutputParser, JsonOutputParser
 from langchain.prompts import PromptTemplate
 from langchain.memory import ConversationBufferMemory
 from pdf_writer import generate_pdf
+from langchain_groq import ChatGroq
 
 from crew import CrewClass, Essay
 
@@ -32,8 +33,8 @@ class RouteQuery(BaseModel):
 
 class EssayWriter:
     def __init__(self):
-        self.model = ChatOpenAI(model="gpt-4o-mini-2024-07-18", temperature=0)
-        self.crew = CrewClass(llm=ChatOpenAI(model="gpt-4o-mini-2024-07-18", temperature=0.5))
+        self.model = ChatGroq(model="llama-3.3-70b-versatile", temperature=0)
+        self.crew = CrewClass(llm=ChatGroq(model="llama-3.3-70b-versatile", temperature=0.5))
 
         self.memory = ConversationBufferMemory()
         self.essay = {}
