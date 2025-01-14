@@ -8,5 +8,4 @@ reportlab
 crewai[tools]
 pysqlite3-binary
 langchain-groq
-sqlite3 == 3.35.0
 chromadb
