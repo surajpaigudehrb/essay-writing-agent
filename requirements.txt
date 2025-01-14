@@ -6,6 +6,6 @@ wikipedia
 bs4
 reportlab
 crewai[tools]
-pysqlite3-binary
+sqlite3
 langchain-groq
 chromadb
