@@ -44,7 +44,6 @@ with st.sidebar:
     if st.button("Initialize Agents", type="primary"):
         st.session_state.app = initialize_agents()
     st.divider()
-    st.markdown(button_html, unsafe_allow_html=True)
 
 app = st.session_state.app
 def generate_response(topic):
