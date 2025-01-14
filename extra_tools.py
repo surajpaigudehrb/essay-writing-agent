@@ -1,7 +1,7 @@
 import wikipedia
 import requests
 from bs4 import BeautifulSoup
-from crewai_tools.tools import tool
+from crewai.tools import tool
 
 @tool("Wikipedia Search Tool")
 def search_wikipedia(query: str) -> str:
