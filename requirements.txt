@@ -6,6 +6,5 @@ wikipedia
 bs4
 reportlab
 crewai[tools]
-sqlite3
 langchain-groq
 chromadb
