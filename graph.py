@@ -3,7 +3,6 @@ import sys
 sys.modules['sqlite3'] = sys.modules.pop('pysqlite3') # This is a workaround to fix the error "sqlite3 module is not found" on live streamlit.
 
 from langgraph.graph import StateGraph, END
-from langchain_openai import ChatOpenAI
 from pydantic import BaseModel, Field
 from typing import TypedDict, List, Literal, Dict, Any
 from langchain_core.output_parsers import StrOutputParser, JsonOutputParser
