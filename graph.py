@@ -10,7 +10,7 @@ from langchain_core.output_parsers import StrOutputParser, JsonOutputParser
 from langchain.prompts import PromptTemplate
 from langchain.memory import ConversationBufferMemory
 from pdf_writer import generate_pdf
-from crewai_tools.models import Groq
+from langchain_groq import ChatGroq
 from crew import CrewClass, Essay
 
 class GraphState(TypedDict):
@@ -32,8 +32,8 @@ class RouteQuery(BaseModel):
 
 class EssayWriter:
     def __init__(self):
-        self.model = Groq(id="gpt-4o-mini-2024-07-18", temperature=0)
-        self.crew = CrewClass(llm=Groq(id="gpt-4o-mini-2024-07-18", temperature=0.5))
+        self.model = ChatGroq(id="gpt-4o-mini-2024-07-18", temperature=0)
+        self.crew = CrewClass(llm=ChatGroq(id="gpt-4o-mini-2024-07-18", temperature=0.5))
 
         self.memory = ConversationBufferMemory()
         self.essay = {}
