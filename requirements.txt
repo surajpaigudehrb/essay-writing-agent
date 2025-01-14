@@ -1,10 +1,10 @@
-langchain-core==0.3.15
-langchain-openai==0.2.6
-langgraph==0.2.45
+langchain-core
+langchain-openai
+langgraph
 streamlit
-wikipedia==1.4.0
-bs4==0.0.2
-reportlab==4.2.5
+wikipedia
+bs4
+reportlab
 crewai[tools]
-pysqlite3-binary # for live version of streamlit, u don't need it on local windows
+pysqlite3-binary
 langchain-groq
