@@ -1,3 +1,7 @@
+__import__('pysqlite3') # This is a workaround to fix the error "sqlite3 module is not found" on live streamlit.
+import sys 
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3') # This is a workaround to fix the error "sqlite3 module is not found" on live streamlit.
+
 from langgraph.graph import StateGraph, END
 from langchain_openai import ChatOpenAI
 from pydantic import BaseModel, Field
@@ -6,7 +10,6 @@ from langchain_core.output_parsers import StrOutputParser, JsonOutputParser
 from langchain.prompts import PromptTemplate
 from langchain.memory import ConversationBufferMemory
 from pdf_writer import generate_pdf
-from langchain_groq import ChatGroq
 
 from crew import CrewClass, Essay
 
@@ -29,8 +32,8 @@ class RouteQuery(BaseModel):
 
 class EssayWriter:
     def __init__(self):
-        self.model = ChatGroq(temperature=0, groq_api_key="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", model_name="mixtral-8x7b-32768")
-        self.crew = CrewClass(llm=ChatGroq(temperature=0, groq_api_key="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", model_name="mixtral-8x7b-32768"))
+        self.model = ChatOpenAI(model="gpt-4o-mini-2024-07-18", temperature=0)
+        self.crew = CrewClass(llm=ChatOpenAI(model="gpt-4o-mini-2024-07-18", temperature=0.5))
 
         self.memory = ConversationBufferMemory()
         self.essay = {}
