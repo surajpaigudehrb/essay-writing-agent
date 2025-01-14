@@ -33,7 +33,7 @@ class RouteQuery(BaseModel):
 
 class EssayWriter:
     def __init__(self):
-        self.model = ChatGroq(model_name="llama3-8b-8192")
+        self.model = ChatGroq(model_name="mixtral-8x7b-32768")
         self.crew = CrewClass(llm=ChatGroq(temperature=0, model_name="mixtral-8x7b-32768"))
 
         self.memory = ConversationBufferMemory()
