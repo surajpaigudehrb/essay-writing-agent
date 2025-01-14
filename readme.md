@@ -76,6 +76,6 @@ https://github.com/user-attachments/assets/d8785bb6-0f7b-489f-89d2-15de26a0dcfb
 
 📄 **License**: This project is licensed under the MIT License.
 
-👨‍💻 **Developed by**: [Mesut Duman](https://www.linkedin.com/in/mesut-duman/)
+👨‍💻 **Developed by**: [Suraj Paigude]
 
 ---
